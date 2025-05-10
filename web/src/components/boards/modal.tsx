@@ -1,7 +1,6 @@
 import { useCreateBoardMutation, useUpdateBoardMutation } from "@/services/boards";
 import React, { useEffect, useState } from "react";
 import Button from "../shared/button";
-import Image from 'next/image';
 interface IProps {
     onClose: () => any;
     board?: any;
