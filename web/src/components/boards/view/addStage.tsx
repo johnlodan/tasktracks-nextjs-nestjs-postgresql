@@ -22,7 +22,7 @@ const AddStageComponent = () => {
     }
 
     return (
-        <div className="flex justify-center items-start w-[280]">
+        <div className="flex justify-center items-start w-[280px]">
             {!isEditing ? (
                 <Button
                     className="bg-gray-700 p-2 rounded mb-2 text-sm cursor-pointer border-2 border-dashed border-gray-100 text-center w-full"

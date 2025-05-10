@@ -131,7 +131,7 @@ const BoardViewComponent: React.FC = () => {
                                                     ref={provided.innerRef}
                                                     {...provided.draggableProps}
                                                     {...provided.dragHandleProps}
-                                                    className="bg-gray-900  w-[280] p-4 rounded-3xl"
+                                                    className="bg-gray-900  w-[280px] p-4 rounded-3xl"
                                                     style={provided.draggableProps.style}
                                                 >
                                                     <ColumnComponent stage={stage} />
