@@ -66,20 +66,14 @@ const BoardModal = (props: IProps) => {
                 />
                 <div className="flex flex-wrap gap-4 mb-2">
                     {imageOptions.map((img) => (
-                        <div
+                        <img
                             key={img}
-                            className={`w-24 h-24 rounded cursor-pointer border-[4px] overflow-hidden relative ${imageUrl === img ? "border-blue-500" : "border-gray-300"
+                            src={img}
+                            alt="Board preview"
+                            className={`w-24 h-24 rounded cursor-pointer border-[4px] object-cover ${imageUrl === img ? "border-blue-500" : "border-gray-300"
                                 }`}
                             onClick={() => setImageUrl(img)}
-                        >
-                            <Image
-                                src={img}
-                                alt="Board preview"
-                                layout="fill"
-                                objectFit="cover"
-                                className="rounded"
-                            />
-                        </div>
+                        />
                     ))}
                 </div>
                 {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
