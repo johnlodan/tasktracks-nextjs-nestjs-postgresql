@@ -5,42 +5,41 @@ import { UpdateRequestTasks } from './dto/updateRequestTasks.dto';
 
 @Injectable()
 export class TasksService {
-    constructor(private readonly prisma: PrismaService) { }
+  constructor(private readonly prisma: PrismaService) { }
 
-    async create(data: any) {
-        return this.prisma.tasks.create({ data });
-    }
+  async create(data: any) {
+    return this.prisma.tasks.create({ data });
+  }
 
-    async findAll() {
-        return this.prisma.tasks.findMany();
-    }
+  async findAll() {
+    return this.prisma.tasks.findMany();
+  }
 
-    async findOne(id: string) {
-        return this.prisma.tasks.findUnique({ where: { id } });
-    }
+  async findOne(id: string) {
+    return this.prisma.tasks.findUnique({ where: { id } });
+  }
 
-    async update(id: string, data: TasksDto) {
-        return this.prisma.tasks.update({ where: { id }, data });
-    }
+  async update(id: string, data: TasksDto) {
+    return this.prisma.tasks.update({ where: { id }, data });
+  }
 
-    async updateReOrder(data: UpdateRequestTasks) {
-        const stageId: string = data?.stageId
-        const updated = await Promise.all(
-            data?.taskIds?.map((taskId, i) => {
-                return this.prisma.tasks.update({
-                    where: { id: taskId },
-                    data: {
-                        stageId: data?.stageId,
-                        order: i + 1
-                    }
-                });
-            })
-        )
+  async updateReOrder(data: UpdateRequestTasks) {
+    const updated = await Promise.all(
+      data?.taskIds?.map((taskId, i) => {
+        return this.prisma.tasks.update({
+          where: { id: taskId },
+          data: {
+            stageId: data?.stageId,
+            order: i + 1,
+          },
+        });
+      }),
+    );
 
-        return updated
-    }
+    return updated;
+  }
 
-    async delete(id: string) {
-        return this.prisma.tasks.delete({ where: { id } });
-    }
+  async delete(id: string) {
+    return this.prisma.tasks.delete({ where: { id } });
+  }
 }

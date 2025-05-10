@@ -26,7 +26,7 @@ const BoardViewComponent: React.FC = () => {
     const { id } = router.query;
     const [stages, setStages] = useState<Stage[]>([]);
     const { data: stagesData } = useGetStagesByBoardIdQuery(id, { skip: router.isFallback });
-    const { data: boardsData, isLoading } = useGetBoardByIdQuery(id, { skip: router.isFallback })
+    const { data: boardsData } = useGetBoardByIdQuery(id, { skip: router.isFallback })
 
     useEffect(() => {
         if (boardsData?.imageUrl?.length) {

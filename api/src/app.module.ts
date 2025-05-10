@@ -16,4 +16,4 @@ import { AuthModule } from './auth/auth.module';
   controllers: [AppController, TasksController, StagesController],
   providers: [AppService, PrismaService, TasksService, StagesService],
 })
-export class AppModule { }
+export class AppModule {}

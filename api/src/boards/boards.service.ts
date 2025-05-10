@@ -4,38 +4,38 @@ import { BoardsDto } from './dto/boards.dto';
 
 @Injectable()
 export class BoardsService {
-    constructor(private readonly prisma: PrismaService) { }
-    async create(userId: string, data: any) {
-        return this.prisma.boards.create({
-            data: {
-                ...data,
-                userId
-            }
-        });
-    }
+  constructor(private readonly prisma: PrismaService) {}
+  async create(userId: string, data: any) {
+    return this.prisma.boards.create({
+      data: {
+        ...data,
+        userId,
+      },
+    });
+  }
 
-    async findAll(userId: string) {
-        return this.prisma.boards.findMany({
-            where: {
-                userId
-            },
-            include: {
-                _count: {
-                    select: { stages: true }
-                }
-            }
-        });
-    }
+  async findAll(userId: string) {
+    return this.prisma.boards.findMany({
+      where: {
+        userId,
+      },
+      include: {
+        _count: {
+          select: { stages: true },
+        },
+      },
+    });
+  }
 
-    async findOne(id: string) {
-        return this.prisma.boards.findUnique({ where: { id } });
-    }
+  async findOne(id: string) {
+    return this.prisma.boards.findUnique({ where: { id } });
+  }
 
-    async update(id: string, data: BoardsDto) {
-        return this.prisma.boards.update({ where: { id }, data });
-    }
+  async update(id: string, data: BoardsDto) {
+    return this.prisma.boards.update({ where: { id }, data });
+  }
 
-    async delete(id: string) {
-        return this.prisma.boards.delete({ where: { id } });
-    }
+  async delete(id: string) {
+    return this.prisma.boards.delete({ where: { id } });
+  }
 }

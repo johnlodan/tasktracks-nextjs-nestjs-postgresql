@@ -1,4 +1,4 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { createApi } from "@reduxjs/toolkit/query/react";
 import { HYDRATE } from "next-redux-wrapper";
 import baseQueryWithAuth from "../lib/preparedHeaders";
 
@@ -15,7 +15,7 @@ export const boards = createApi({
     },
     endpoints: (builder) => ({
         getBoards: builder.query({
-            query: (query) => ({
+            query: () => ({
                 url: `boards`,
                 method: 'GET',
             }),

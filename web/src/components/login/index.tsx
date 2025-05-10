@@ -40,7 +40,7 @@ const LoginComponent = () => {
                     <p className="text-white text-left text-md leading-relaxed">
                         Streamline Your Workflow, Elevate Your Productivity.
                         From idea to execution, organize, track, and optimize your tasks with seamless ticket management and staging.
-                        Whether you're collaborating with teams or managing projects solo, TaskTracks keeps everything in sync, structured, and effortless.
+                        Whether you&lsquo;re collaborating with teams or managing projects solo, TaskTracks keeps everything in sync, structured, and effortless.
                     </p>
                 </div>
                 <div className="w-full md:w-1/2 p-6">
@@ -73,7 +73,7 @@ const LoginComponent = () => {
                         Login
                     </Button>
                     <p className="text-gray-400 text-center mt-4 text-sm">
-                        Don't have an account?
+                        Don&lsquo;t have an account?
                         <Link href="/register">
                             <span className="text-blue-500 cursor-pointer">Sign up</span>
                         </Link>

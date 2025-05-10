@@ -1,10 +1,10 @@
-import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd";
+import { Droppable, Draggable } from "@hello-pangea/dnd";
 import AddTaskComponent from "./addTask";
 import { useState } from "react";
 import { useRemoveStageMutation, useUpdateStageMutation } from "@/services/stages";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrash, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import Modal from "./modal";
 import Button from "@/components/shared/button";
 

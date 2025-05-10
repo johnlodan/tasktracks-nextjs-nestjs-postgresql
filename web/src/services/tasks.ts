@@ -1,4 +1,4 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { createApi } from "@reduxjs/toolkit/query/react";
 import { HYDRATE } from "next-redux-wrapper";
 import baseQueryWithAuth from "../lib/preparedHeaders";
 import { IUpdateOrderTasks } from "@/types/tasks";
@@ -18,7 +18,7 @@ export const tasks = createApi({
     },
     endpoints: (builder) => ({
         getTasks: builder.query({
-            query: (query) => ({
+            query: () => ({
                 url: `tasks`,
                 method: 'GET',
             }),

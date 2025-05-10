@@ -7,16 +7,21 @@ import { ExtractJwt } from 'passport-jwt';
 
 @Injectable()
 export class JwtAuthStrategy extends PassportStrategy(Strategy) {
-    constructor(private prisma: PrismaService, private jwtService: JwtService) {
-        super({
-            jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-            secretOrKey: 'jwt_secret_key',
-        });
-    }
+  constructor(
+    private prisma: PrismaService,
+    private jwtService: JwtService,
+  ) {
+    super({
+      jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+      secretOrKey: 'jwt_secret_key',
+    });
+  }
 
-    async validate(payload: any) {
-        const user = await this.prisma.users.findUnique({ where: { id: payload.sub } });
-        if (!user) throw new Error('User not found');
-        return user;
-    }
+  async validate(payload: any) {
+    const user = await this.prisma.users.findUnique({
+      where: { id: payload.sub },
+    });
+    if (!user) throw new Error('User not found');
+    return user;
+  }
 }

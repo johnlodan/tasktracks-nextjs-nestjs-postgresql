@@ -6,14 +6,14 @@ import { JwtAuthStrategy } from './jwt.strategy';
 import { PrismaService } from '../prisma/prisma.service';
 
 @Module({
-    imports: [
-        JwtModule.register({
-            secret: 'jwt_secret_key',
-            signOptions: { expiresIn: '1d' },
-        }),
-    ],
-    controllers: [AuthController],
-    providers: [AuthService, JwtAuthStrategy, PrismaService],
-    exports: [AuthService],
+  imports: [
+    JwtModule.register({
+      secret: 'jwt_secret_key',
+      signOptions: { expiresIn: '1d' },
+    }),
+  ],
+  controllers: [AuthController],
+  providers: [AuthService, JwtAuthStrategy, PrismaService],
+  exports: [AuthService],
 })
-export class AuthModule { }
+export class AuthModule {}
